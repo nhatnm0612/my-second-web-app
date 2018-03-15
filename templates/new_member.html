@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}NEW MEMBER{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>NEW MEMBER</h1>
+        </div>
+    </div>
+    <div class="container">
+        <form action="" method="POST">
+            <div class="wrapper">
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input type="text" class="form-control" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label>Family Name:</label>
+                    <input type="text" class="form-control" name="family-name" required>
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <br />
+                    <label class="radio-inline"><input type="radio" name="gender" value="male" checked="checked">MALE</label>
+                    <label class="radio-inline"><input type="radio" name="gender" value="female">FEMALE</label>
+                </div>            
+                <div class="form-group">
+                    <label>Date of Birth:</label>
+                    <br />
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 fill">
+                        <select class="form-control" name="month">
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        <select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 fill">
+                        <select class="form-control" name="date">
+                            {% for date in range(1, 32) %}
+                            <option>{{ date }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 fill">
+                        <select class="form-control" name="year">
+                            {% for year in range(this_year, this_year - 100, -1) %}
+                            <option>{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Certificate:</label>
+                    <select class="form-control" name="certificate">
+                        <option>High School</option>
+                        <option>College</option>
+                        <option>University</option>
+                        <option>Master</option>
+                    </select>
+                </div>
+            <div class="button-row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <button class="btn btn-primary btn-lg btn-block" type="summit">
+                        <span class="glyphicon glyphicon-ok"></span> New Member
+                    </button>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <button class="btn btn-danger btn-lg btn-block" type="reset">
+                        <span class="glyphicon glyphicon-remove"></span> Reset
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

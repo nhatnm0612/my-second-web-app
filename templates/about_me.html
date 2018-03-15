@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    ABOUT ME
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>ABOUT ME</h1>
+        </div>
+    </div>
+    <div class="container">
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+        <div class="main">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                <img src="/static/images/my-avatar.jpg" alt="my avatar">
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-7 col-xs-12">
+                <p>This is the demo version of a Class Management Website <br />
+                Creator: Nhật Nguyễn Minh <br />
+                I was born in 1989.<br />
+                I am a self-learner who happened to fall in love with Python (How can you resist Python? It's an amazing scripting language which can do almost anything, and even easy to start with.), Mongo DB (Yes, Mongo DB - I haven't seen any SQL Database which can be easier to use than it.), Flask web development & Jinja2 templates (Not so sure with this 2 guys... But they are better than Tkinter - Sorry Tkinter developing team...). <br />
+                Started my coding career from 19th, May, 2017. <br />
+                Yes... 28-year-old-boy who was nothing but a loser, a quitter, until I learned how to talk, real talking with my computer. <br />
+                You can take anything out of my life, except my knowledge!</p>
+                <hr />
+                <p>I do some terrible css styling, but for the reason of back-end developing, this web-application only uses default Bootstrap. <br />
+                And I made it terribly ugly, but fully function.</p>
+            </div>
+            <div class="how-to-contact">
+                <button type="button" class="btn btn-lg btn-link btn-block">
+                    <a href="https://www.facebook.com/Onimaru0612">Contact me...</a>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

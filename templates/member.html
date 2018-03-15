@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    MEMBER PAGE
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>MEMBER PAGE</h1>
+            <p>Member id: {{ ID }}</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="image col-lg-6 col-md-6 col-sm-3 col-xs-12">
+            <h3>Member image (Not yet available!)</h3>
+        </div>
+        <div class="member-info col-lg-6 col-md-6 col-sm-9 col-xs-12">
+            <div id="member-info">
+                <label>Name:</label>
+                <p>{{ name }}<p>
+                <label>Age:</label>
+                <p>{{ age }}<p>
+                <label>Date Of Birth:</label>
+                <p>{{ DoB }}<p>
+                <label>Gender: </label>
+                <p>{{ gender }}<p>
+            </div>
+            <br />
+            <button class="btn btn-block btn-lg btn-info" data-toggle="collapse" data-target="#change-member-info">
+                    <span class="glyphicon glyphicon-edit"></span> Change Member Info...
+            </button>
+            <div id="change-member-info" class="collapse">
+                <form action="/member/change/{{ ID }}" method="POST">
+                    <div class="form-group">
+                        <label>First Name:</label>
+                        <input type="text" class="form-control" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Family Name:</label>
+                        <input type="text" class="form-control" name="family-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <input type="radio" name="gender" value="male" checked="checked">Male
+                        <input type="radio" name="gender" value="female">Female
+                    </div>
+                    <div class="form-group">
+                        <label>Date Of Birth:</label>
+                        <select class="form-control" name="month">
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+                        <select class="form-control" name="date">
+                            {% for day in range(1, 32) %}
+                            <option>{{ day }}</option>
+                            {% endfor %}
+                        </select>
+                        <select class="form-control" name="year">
+                            {% for year in range(this_year, this_year - 100, -1) %}
+                            <option>{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Certificate:</label>
+                        <select class="form-control" name="certificate">
+                            <option>High School</option>
+                            <option>College</option>
+                            <option>University</option>
+                            <option>Master</option>
+                        </select>
+                    </div>
+                    <button type="summit" class="btn btn-block btn-lg btn-primary">
+                        <span class="glyphicon glyphicon-ok"></span> Summit New Member Info...
+                    </button>
+                </form>
+            </div>
+            <br />
+            <form action="" method="POST">
+                <button class="btn btn-block btn-lg btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span> Delete Member
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

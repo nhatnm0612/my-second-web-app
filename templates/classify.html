@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    CLASSIFY
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>CLASSIFY PAGE</h1>
+            <p>Classify by: {{ by | replace("-", " ") | capitalize }}</p>
+        </div>
+    </div>
+    <div class="container plot-div">
+        <img src="{{ url_for('plotting', by = by) }}" alt="classify plot for {{ by }}">
+    </div>
+{% endblock %}

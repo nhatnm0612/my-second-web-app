@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    UPLOAD PAGE
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>UPLOAD PAGE</h1>
+            <p>Still in developing, only allow my format csv file... Sorry!</p>
+        </div>
+    </div>
+    <div class="container">
+        <form method="POST" action="" enctype="multipart/form-data">
+        <div class="input-file-information">
+            <label for="input-file">File input</label>
+            <input type="file" name="input-file">
+            <p>This process may run for a while, because uploading each line to MongoDB is not that fast, especially when you close connect after each upload.</p>
+        </div>
+        <br />
+        <div class="input-file-summit-button">
+            <button type="summit" class="btn btn-lg btn-info">Summit</button>
+        </div>
+        </form>
+    </div>
+{% endblock %}

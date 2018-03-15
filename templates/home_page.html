@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    HOME PAGE
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>HOME PAGE</h1>
+        </div>
+    </div>
+    <div class="container drop-management-class">
+        <form action="" method="POST">
+            <button type="summit" class="btn btn-block btn-lg btn-danger">
+                <span class="glyphicon glyphicon-trash"></span> Drop Class
+            </button>
+        </form>
+    </div>
+    <div class="container dummy-text">
+        <p>Use this button for deleting all students you got in MongoDB. This thing works because deleting one by one is slow as hell!<br />
+        Of course you can still do that. But when you don't want to use that data anymore, it can take you a while to delete all stuff.<br />
+        So...<br />
+        Upload a csv file when you want to create a lot of students.<br />
+        Drop Class button is there when you want to delete all.</p>
+    </div>
+{% endblock %}

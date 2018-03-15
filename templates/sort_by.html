@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ by_field|upper }}
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>SORTED BY {{ by_field|upper }}</h1>
+            {% if data | length <= 1 %}
+            <p>Class has: {{ data | length }} member.</p>
+            {% else %}
+            <p>Class has: {{ data | length }} members.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        <form action="" method="POST">
+            <div class="form-group">
+                <label>Search:</label>
+                <br />
+                <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+                    <select class="form-control" name="filter-by">
+                        <option>Name</option>
+                        <option>Gender</option>
+                        <option>Certificate</option>
+                        <option>Age</option>
+                    </select>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+                    <input type="text" class="form-control" name="filter-value">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                    <button class="btn btn-info btn-block" type="summit">
+                        <span class="glyphicon glyphicon-search"></span> Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <th>No</th>
+                <th>Full name</th>
+                <th>Date Of Birth</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Certificate</th>
+            </thead>
+            <tbody>
+            {% for (age, fullname, DoB, gender, certificate, id) in data %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><a href="/member/{{id}}/">{{ fullname }}</a></td>
+                    <td>{{ DoB }}</td>
+                    <td>{{ age }}</td>
+                    <td>{{ gender }}</td>
+                    <td>{{ certificate }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
