@@ -1,3 +1,8 @@
 .dummy-div {
     padding: 25.5px;
 }
+
+.jumbotron {
+    background-color: #272B7B;
+    color: white;
+}
